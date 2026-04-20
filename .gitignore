@@ -1,0 +1,53 @@
+# History rebuild staging (local only)
+.git-history-staging/
+
+# PDF and local submission workflow
+*.pdf
+FINAL_PACKAGE/
+_submitted/
+
+# Application texts (PDF via AIRI form; sources stay local)
+AIRI_*.md
+README_submission.txt
+
+# Audit / fix scripts (not part of public reproducibility repo)
+DEEP_ACADEMIC_AUDIT_2026.md
+*_MANUAL_FIX*.md
+apply_*.py
+fix_*.py
+byte_level_fix.py
+audit_result.txt
+run_audit.py
+MAXIMAL_ACADEMIC_AUDIT_REPORT_2026.md
+FINAL_ACADEMIC_AUDIT_REPORT.md
+
+# Regenerated figures (canonical PNGs committed: coverage_vs_error, reliability_diagram, full_analysis_*)
+artifacts/*_local*.png
+artifacts/sensitivity_expert_*_analysis*.png
+artifacts/merged_two_seeds*.png
+artifacts/non_oracle_defer_results_batch_*.json
+artifacts/non_oracle_defer_results_local*.json
+artifacts/batch_results_*.json
+artifacts/merged_two_seeds*.json
+artifacts/sensitivity_expert_*_raw.json
+artifacts/sensitivity_expert_*_full.json
+artifacts/sensitivity_expert_*_analysis.json
+artifacts/sensitivity_expert_*_analysis.*
+artifacts/sensitivity_test_*.json
+artifacts/test_seed_*.json
+artifacts/non_oracle_defer_results_smoke_*.json
+artifacts/non_oracle_defer_results_test.json
+
+# Build / env
+out/
+build/
+dist/
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
