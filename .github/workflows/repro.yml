@@ -1,0 +1,32 @@
+name: Reproducibility Check
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./artifacts
+          load: true
+          tags: airi-defer-sim:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Run simulation (single seed)
+        run: |
+          mkdir -p artifacts/out
+          docker run --rm \
+            -v ${{ github.workspace }}/artifacts/out:/app/out \
+            airi-defer-sim:latest \
+            python non_oracle_defer_simulation_2026_05.py --seed 20260501 --out out/results.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: simulation-results
+          path: artifacts/out/
+          retention-days: 14
