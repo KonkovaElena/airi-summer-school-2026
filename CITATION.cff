@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+title: "Calibrated Learning to Defer Simulation for Medical AI"
+abstract: >
+  Synthetic-data evaluation framework for learning-to-defer under constrained expert budgets.
+authors:
+  - family-names: Konkova
+    given-names: Elena
+version: 1.0.0
+date-released: 2026-04-26
+url: "https://github.com/KonkovaElena/airi-summer-school-2026"
+repository-code: "https://github.com/KonkovaElena/airi-summer-school-2026"
+license: MIT
+keywords:
+  - medical-ai
+  - learning-to-defer
+  - calibration
