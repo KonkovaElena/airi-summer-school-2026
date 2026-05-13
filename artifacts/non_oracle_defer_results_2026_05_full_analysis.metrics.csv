@@ -1,0 +1,5 @@
+policy,n_seeds,mean_accuracy,std_accuracy,ci_low,ci_high,mean_review_rate,mean_deferred_accuracy
+model_only,100,0.718683,0.004110,0.717898,0.719490,0.000000,nan
+naive_threshold,100,0.810453,0.003409,0.809808,0.811141,0.349174,0.901537
+calibrated_defer,100,0.812870,0.005096,0.811834,0.813848,0.339639,0.907017
+always_review,100,0.875217,0.002804,0.874651,0.875764,1.000000,nan

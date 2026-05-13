@@ -1,0 +1,109 @@
+{
+  "generated_at": "2026-05-20T14:59:30.649727Z",
+  "script": "compute_and_plot_results.py",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python_version": "3.13.7",
+  "metrics": {
+    "model_only": {
+      "n_seeds": 100,
+      "mean_accuracy": 0.7186833333333333,
+      "std_accuracy": 0.004110445619081933,
+      "ci_low": 0.7178982291666667,
+      "ci_high": 0.7194901041666666,
+      "mean_review_rate": 0.0,
+      "mean_deferred_accuracy": null
+    },
+    "naive_threshold": {
+      "n_seeds": 100,
+      "mean_accuracy": 0.8104533333333335,
+      "std_accuracy": 0.0034091199400185525,
+      "ci_low": 0.8098083125,
+      "ci_high": 0.8111408333333333,
+      "mean_review_rate": 0.3491741666666667,
+      "mean_deferred_accuracy": 0.9015367732194339
+    },
+    "calibrated_defer": {
+      "n_seeds": 100,
+      "mean_accuracy": 0.8128700000000001,
+      "std_accuracy": 0.005096381938830939,
+      "ci_low": 0.8118341666666666,
+      "ci_high": 0.8138483541666666,
+      "mean_review_rate": 0.3396391666666666,
+      "mean_deferred_accuracy": 0.9070173427608285
+    },
+    "always_review": {
+      "n_seeds": 100,
+      "mean_accuracy": 0.8752166666666666,
+      "std_accuracy": 0.002804442723590368,
+      "ci_low": 0.8746508125,
+      "ci_high": 0.8757641875000001,
+      "mean_review_rate": 1.0,
+      "mean_deferred_accuracy": null
+    }
+  },
+  "comparisons": [
+    {
+      "a": "calibrated_defer",
+      "b": "naive_threshold",
+      "mean_diff": 0.002416666666666666,
+      "ci_low": 0.0015241458333333298,
+      "ci_high": 0.0032592083333333388,
+      "p_value": 9.999000099990002e-05,
+      "cohen_d_paired": 0.5306151580424288,
+      "n_bootstrap": 5000,
+      "bootstrap_artifact": "bootstrap_calibrated_defer_vs_naive_threshold.npy.gz",
+      "bootstrap_artifact_meta": "bootstrap_calibrated_defer_vs_naive_threshold.npy.gz.meta.json",
+      "p_value_holm": 0.00029997000299970003,
+      "significant_holm": true
+    },
+    {
+      "a": "calibrated_defer",
+      "b": "model_only",
+      "mean_diff": 0.09418666666666667,
+      "ci_low": 0.09316997916666668,
+      "ci_high": 0.09512166666666666,
+      "p_value": 9.999000099990002e-05,
+      "cohen_d_paired": 18.82497122438391,
+      "n_bootstrap": 5000,
+      "bootstrap_artifact": "bootstrap_calibrated_defer_vs_model_only.npy.gz",
+      "bootstrap_artifact_meta": "bootstrap_calibrated_defer_vs_model_only.npy.gz.meta.json",
+      "p_value_holm": 0.00029997000299970003,
+      "significant_holm": true
+    },
+    {
+      "a": "naive_threshold",
+      "b": "model_only",
+      "mean_diff": 0.09176999999999999,
+      "ci_low": 0.09108408333333332,
+      "ci_high": 0.09242333333333333,
+      "p_value": 9.999000099990002e-05,
+      "cohen_d_paired": 26.22058256596889,
+      "n_bootstrap": 5000,
+      "bootstrap_artifact": "bootstrap_naive_threshold_vs_model_only.npy.gz",
+      "bootstrap_artifact_meta": "bootstrap_naive_threshold_vs_model_only.npy.gz.meta.json",
+      "p_value_holm": 0.00029997000299970003,
+      "significant_holm": true
+    }
+  ],
+  "git_sha": "ce3fa5a",
+  "requirements_hash": "c987cf729f1457830b0ee12edd11d8eba97a940bf0a0751c984328ed74715d1a",
+  "docker_image_digest": "N/A",
+  "analysis_config": {
+    "n_bootstrap": 5000,
+    "n_permutation": 10000,
+    "alpha": 0.05,
+    "rng_seed": 0,
+    "include_bootstrap_blobs": false
+  },
+  "protocol_version": "1.1",
+  "frozen_run_id": "primary_optimistic_greedy_r100_202605",
+  "simulation_config": {
+    "expert_mode": "optimistic",
+    "beta_alpha": 2.1,
+    "beta_beta": 2.4,
+    "risk_signal_formula": "clamp(0.18 + 0.55 * difficulty + rng.gauss(0.0, 0.11), 0.01, 0.99)",
+    "confidence_formula": "clamp(0.91 - 0.52 * difficulty + rng.gauss(0.0, 0.08), 0.05, 0.99)",
+    "model_accuracy_formula": "clamp(0.95 - 0.28 * difficulty - 0.23 * risk_signal, 0.46, 0.97)",
+    "expert_accuracy_formula": "clamp(0.79 + 0.07 * difficulty + 0.12 * risk_signal, 0.71, 0.96)"
+  }
+}
