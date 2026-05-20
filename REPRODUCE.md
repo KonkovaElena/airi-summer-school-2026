@@ -75,12 +75,16 @@ python artifacts/non_oracle_defer_simulation_2026_05.py --seed 20260501 --n_seed
 
 ## Docker (CI parity)
 
+Matches `make docker-smoke` and CI `docker-smoke` job: **1 seed**, default bootstrap (fast image check).
+
 ```bash
+make docker-smoke
+# equivalent:
 cd artifacts
 docker build -t airi-defer-sim:latest .
 mkdir -p out
 docker run --rm -v "$(pwd)/out:/app/out" airi-defer-sim:latest \
-  python non_oracle_defer_simulation_2026_05.py --seed 20260501 --out out/results.json
+  python non_oracle_defer_simulation_2026_05.py --seed 20260501 --n_seeds 1 --out out/smoke_docker.json
 ```
 
 ## Sensitivity (expert modes)
