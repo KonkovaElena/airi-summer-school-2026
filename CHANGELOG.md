@@ -7,9 +7,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Sem
 
 ### Fixed
 
-- CI: `verify` job runs `verify_release`, strict `validate_analysis`, and `pytest` before Docker smoke (SHA-pinned Actions).
-- `CITATION.cff`: version 1.1.0, `preferred-citation` (Verma & Nalisnick 2022).
+- CI: `verify` job runs `verify_release`, strict `validate_analysis`, and `pytest` before Docker smoke (Python 3.13).
+- `CITATION.cff`: version 1.1.1, `preferred-citation` (Verma & Nalisnick 2022).
 - `REPRODUCE.md`: inline hash commands for Linux and Windows (no broken local-only links).
+- Tests: `test_validate_analysis.py` uses standalone repo root (`parents[1]`, not monorepo path).
 
 ## [1.1.0] - 2026-05-20
 
