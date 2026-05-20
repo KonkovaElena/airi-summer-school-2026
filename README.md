@@ -22,6 +22,6 @@ Canonical JSON: `artifacts/non_oracle_defer_results_2026_05_full_analysis.json`.
 make verify   # frozen metrics + pytest (same gates as CI)
 ```
 
-**Cite:** [CITATION.cff](CITATION.cff) · Release [v1.1.0](https://github.com/KonkovaElena/airi-summer-school-2026/releases/tag/v1.1.0)
+**Cite:** [CITATION.cff](CITATION.cff) · Tag [v1.1.1](https://github.com/KonkovaElena/airi-summer-school-2026/releases/tag/v1.1.1)
 
 ![Coverage vs error](artifacts/coverage_vs_error.png)
