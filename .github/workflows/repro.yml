@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1635f9b9a9b1abcbeaf1e178f # v4.2.2
       - uses: actions/setup-python@a26afbe31e5b6a610e9c4da9ccf23b8331597561 # v5.3.0
         with:
-          python-version: "3.12"
+          python-version: "3.13"
           cache: pip
           cache-dependency-path: artifacts/requirements.txt
       - name: Install locked dependencies
