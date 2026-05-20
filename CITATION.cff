@@ -3,15 +3,28 @@ message: "If you use this software, please cite it using the metadata from this 
 title: "Calibrated Learning to Defer Simulation for Medical AI"
 abstract: >
   Synthetic-data evaluation framework for learning-to-defer under constrained expert budgets.
+  Not clinical software.
 authors:
   - family-names: Konkova
     given-names: Elena
-version: 1.0.0
-date-released: 2026-04-26
+version: 1.1.1
+date-released: 2026-05-20
 url: "https://github.com/KonkovaElena/airi-summer-school-2026"
 repository-code: "https://github.com/KonkovaElena/airi-summer-school-2026"
 license: MIT
 keywords:
   - medical-ai
   - learning-to-defer
-  - calibration
+  - uncertainty-calibration
+  - reproducible-research
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Verma
+      given-names: Varun
+    - family-names: Nalisnick
+      given-names: Eric
+  title: "Calibrated Learning to Defer with One-vs-All Classifiers"
+  year: 2022
+  url: "https://arxiv.org/abs/2202.03673"
+  doi: 10.48550/arXiv.2202.03673

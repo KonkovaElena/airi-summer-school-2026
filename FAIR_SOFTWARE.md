@@ -13,7 +13,7 @@ Checklist based on [TU Delft FAIR software](https://tu-delft-dcc.github.io/docs/
 | Installation / run docs | Done | [REPRODUCE.md](REPRODUCE.md), [artifacts/README.md](artifacts/README.md) |
 | Container | Done | [artifacts/Dockerfile](artifacts/Dockerfile) |
 | Unit / integration tests | Done | [tests/](tests/) |
-| CI | Done | [.github/workflows/repro.yml](.github/workflows/repro.yml) |
+| CI | Done | `verify` job (`verify_release`, strict validate, pytest) then `docker-smoke` — [.github/workflows/repro.yml](.github/workflows/repro.yml) |
 | Frozen protocol doc | Done | [docs/PROTOCOL.md](docs/PROTOCOL.md) |
 | Provenance in analysis JSON | Done | `requirements_hash`, `protocol_version`, `frozen_run_id` |
 | CONTRIBUTING + CoC | Done | This repo root |

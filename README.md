@@ -18,4 +18,10 @@ Calibrated vs naive: **+0.24 pp** (95% CI [0.15, 0.33], p < 0.0001).
 
 Canonical JSON: `artifacts/non_oracle_defer_results_2026_05_full_analysis.json`. See [REPRODUCE.md](REPRODUCE.md).
 
+```bash
+make verify   # frozen metrics + pytest (same gates as CI)
+```
+
+**Cite:** [CITATION.cff](CITATION.cff) · Release [v1.1.0](https://github.com/KonkovaElena/airi-summer-school-2026/releases/tag/v1.1.0)
+
 ![Coverage vs error](artifacts/coverage_vs_error.png)

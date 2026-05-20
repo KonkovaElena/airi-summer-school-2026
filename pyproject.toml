@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "airi-defer-simulation"
-version = "1.1.0"
+version = "1.1.1"
 description = "Reproducible synthetic evaluation of calibrated learning-to-defer under expert review budgets (AIRI 2026 MEDAI)."
 readme = "README.md"
 license = { text = "MIT" }

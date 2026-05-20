@@ -3,6 +3,14 @@
 All notable changes to this repository are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Semantic Versioning](https://semver.org/).
 
+## [1.1.1] - 2026-05-20
+
+### Fixed
+
+- CI: `verify` job runs `verify_release`, strict `validate_analysis`, and `pytest` before Docker smoke (SHA-pinned Actions).
+- `CITATION.cff`: version 1.1.0, `preferred-citation` (Verma & Nalisnick 2022).
+- `REPRODUCE.md`: inline hash commands for Linux and Windows (no broken local-only links).
+
 ## [1.1.0] - 2026-05-20
 
 ### Added
@@ -31,5 +39,6 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Sem
 - Initial simulation, Docker image, and CI workflow (`repro.yml`).
 - `CITATION.cff`, MIT `LICENSE`.
 
+[1.1.1]: https://github.com/KonkovaElena/airi-summer-school-2026/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/KonkovaElena/airi-summer-school-2026/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/KonkovaElena/airi-summer-school-2026/releases/tag/v1.0.0

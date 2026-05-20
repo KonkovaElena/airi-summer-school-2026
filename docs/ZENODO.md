@@ -3,7 +3,7 @@
 GitHub alone is not a long-term archive. For citable releases:
 
 1. Enable [Zenodo–GitHub integration](https://docs.github.com/en/archiving-a-github-repository/referencing-and-citing-content) for `KonkovaElena/airi-summer-school-2026`.
-2. Create a GitHub Release `v1.1.0` matching [CHANGELOG.md](../CHANGELOG.md).
+2. Create a GitHub Release `v1.1.1` (or latest tag) matching [CHANGELOG.md](../CHANGELOG.md).
 3. Zenodo will mint a **DOI**; add it to `CITATION.cff`:
 
 ```yaml

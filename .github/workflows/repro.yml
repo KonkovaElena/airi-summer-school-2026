@@ -1,17 +1,49 @@
 name: Reproducibility Check
+
 on:
   push:
     branches: [main, master]
+  pull_request:
+    branches: [main, master]
   workflow_dispatch:
 
+concurrency:
+  group: repro-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  simulate:
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: docker/setup-buildx-action@v3
+      - uses: actions/checkout@11bd71901bbe5b1635f9b9a9b1abcbeaf1e178f # v4.2.2
+      - uses: actions/setup-python@a26afbe31e5b6a610e9c4da9ccf23b8331597561 # v5.3.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: artifacts/requirements.txt
+      - name: Install locked dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r artifacts/requirements.txt
+          pip install "pytest>=8.3,<9"
+      - name: Verify frozen release metrics
+        run: python scripts/verify_release.py
+      - name: Strict provenance validation
+        run: |
+          python scripts/validate_analysis.py \
+            artifacts/non_oracle_defer_results_2026_05_full_analysis.json \
+            --strict-provenance
+      - name: Pytest
+        run: pytest -q
+
+  docker-smoke:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1635f9b9a9b1abcbeaf1e178f # v4.2.2
+      - uses: docker/setup-buildx-action@e468cf288ea2e51e58ef3a77a83b54ab029f3979 # v3.7.1
       - name: Build Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@4f58ea79222a7a3c7bfe1bc5ab0feabbdcd63c5c # v6.9.0
         with:
           context: ./artifacts
           load: true
@@ -22,10 +54,10 @@ jobs:
         run: |
           mkdir -p artifacts/out
           docker run --rm \
-            -v ${{ github.workspace }}/artifacts/out:/app/out \
+            -v "${{ github.workspace }}/artifacts/out:/app/out" \
             airi-defer-sim:latest \
             python non_oracle_defer_simulation_2026_05.py --seed 20260501 --out out/results.json
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@26f96f695a4aede40be5038d96f7ef4ed8260aae # v4.6.0
         with:
           name: simulation-results
           path: artifacts/out/

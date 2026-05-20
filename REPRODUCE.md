@@ -5,6 +5,9 @@ Canonical metrics: `artifacts/non_oracle_defer_results_2026_05_full_analysis.jso
 ## Quick verify
 
 ```bash
+make verify
+# or:
+python scripts/verify_release.py
 python scripts/validate_analysis.py artifacts/non_oracle_defer_results_2026_05_full_analysis.json --strict-provenance
 pytest -q
 ```
@@ -34,10 +37,12 @@ python merge_experiment_results.py \
   -o non_oracle_defer_results_2026_05_full.json
 
 pip freeze | sort -u > installed.txt
-# Linux: sha256sum installed.txt | awk '{print $1}' > installed.txt.sha256
-# Windows: see GITHUB_REPO_AUDIT for PowerShell hash command
-
-export REQUIREMENTS_HASH=$(cat installed.txt.sha256)   # or set in PowerShell
+# Linux:
+sha256sum installed.txt | awk '{print $1}' > installed.txt.sha256
+export REQUIREMENTS_HASH=$(cat installed.txt.sha256)
+# Windows (PowerShell):
+# (Get-FileHash -Algorithm SHA256 installed.txt).Hash.ToLower() | Set-Content installed.txt.sha256 -NoNewline
+# $env:REQUIREMENTS_HASH = Get-Content installed.txt.sha256 -Raw
 
 python compute_and_plot_results.py non_oracle_defer_results_2026_05_full.json \
   -o non_oracle_defer_results_2026_05_full_analysis \
