@@ -246,23 +246,36 @@ def main():
         # allow CI or caller to override with environment variable
         gitsha = os.environ.get('GIT_SHA')
     if not gitsha:
-        # attempt to run `git rev-parse` in the merged JSON directory and its parents
+        # Resolve SHA from this repository root (stop at LICENSE/CITATION.cff), not an outer monorepo
         merged_dir = os.path.dirname(os.path.abspath(args.merged_json))
         found = False
         cur = merged_dir
-        for _ in range(6):
-            try:
-                gitsha = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], cwd=cur, stderr=subprocess.DEVNULL).decode().strip()
-                found = True
-                break
-            except Exception:
-                parent = os.path.dirname(cur)
-                if parent == cur:
+        for _ in range(8):
+            if os.path.isdir(os.path.join(cur, '.git')) and (
+                os.path.isfile(os.path.join(cur, 'LICENSE'))
+                or os.path.isfile(os.path.join(cur, 'CITATION.cff'))
+            ):
+                try:
+                    gitsha = subprocess.check_output(
+                        ['git', 'rev-parse', '--short', 'HEAD'],
+                        cwd=cur,
+                        stderr=subprocess.DEVNULL,
+                    ).decode().strip()
+                    found = True
                     break
-                cur = parent
+                except Exception:
+                    pass
+            parent = os.path.dirname(cur)
+            if parent == cur:
+                break
+            cur = parent
         if not found:
             try:
-                gitsha = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], cwd=os.getcwd(), stderr=subprocess.DEVNULL).decode().strip()
+                gitsha = subprocess.check_output(
+                    ['git', 'rev-parse', '--short', 'HEAD'],
+                    cwd=os.getcwd(),
+                    stderr=subprocess.DEVNULL,
+                ).decode().strip()
             except Exception:
                 gitsha = 'N/A'
     out['git_sha'] = gitsha

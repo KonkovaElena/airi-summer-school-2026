@@ -14,7 +14,7 @@ Reproducible research software for comparing deferral policies under a fixed exp
 | Model only | 71.87% (71.79–71.95) | 0.00% |
 | Always review | 87.52% (87.47–87.58) | 100.00% |
 
-Calibrated vs naive: **+0.24 pp** (95% CI [0.15, 0.33], p < 0.0001).
+Calibrated vs naive: **+0.24 pp** (95% CI [0.15, 0.33]; paired permutation *p* < 0.0001; Holm-corrected *p* < 0.001).
 
 Canonical JSON: `artifacts/non_oracle_defer_results_2026_05_full_analysis.json`. See [REPRODUCE.md](REPRODUCE.md).
 

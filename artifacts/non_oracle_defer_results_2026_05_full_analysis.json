@@ -85,7 +85,7 @@
       "significant_holm": true
     }
   ],
-  "git_sha": "ce3fa5a",
+  "git_sha": "0f4340c",
   "requirements_hash": "c987cf729f1457830b0ee12edd11d8eba97a940bf0a0751c984328ed74715d1a",
   "docker_image_digest": "N/A",
   "analysis_config": {
