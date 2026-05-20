@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "airi-defer-simulation"
+version = "1.1.0"
+description = "Reproducible synthetic evaluation of calibrated learning-to-defer under expert review budgets (AIRI 2026 MEDAI)."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "Elena Konkova" }]
+keywords = ["medical-ai", "learning-to-defer", "calibration", "reproducibility"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+
+[project.urls]
+Homepage = "https://github.com/KonkovaElena/airi-summer-school-2026"
+Repository = "https://github.com/KonkovaElena/airi-summer-school-2026"
+Issues = "https://github.com/KonkovaElena/airi-summer-school-2026/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["artifacts", "scripts"]
+addopts = "-q"
+
+[tool.setuptools]
+packages = []

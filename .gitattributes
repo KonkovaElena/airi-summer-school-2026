@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.py linguist-language=Python
+*.ipynb linguist-documentation
+artifacts/*.json linguist-generated=false
+*.npy.gz binary
+*.png binary

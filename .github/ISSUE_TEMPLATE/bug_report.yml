@@ -1,0 +1,34 @@
+name: Bug report
+description: Something fails to run or results disagree with the frozen protocol
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: "make verify / docker-smoke / command used"
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Commit SHA or tag
+    validations:
+      required: true
+  - type: dropdown
+    id: env
+    attributes:
+      label: Environment
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Docker only
+    validations:
+      required: true
