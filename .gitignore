@@ -10,9 +10,11 @@ _submitted/
 AIRI_*.md
 README_submission.txt
 
-# Audit / fix scripts (not part of public reproducibility repo)
+# Local maintenance and submission workflow (never publish)
 DEEP_ACADEMIC_AUDIT_2026.md
 *_MANUAL_FIX*.md
+GITHUB_REPO_AUDIT*.md
+GIT_HISTORY_PUSH.md
 apply_*.py
 fix_*.py
 byte_level_fix.py
@@ -20,6 +22,10 @@ audit_result.txt
 run_audit.py
 MAXIMAL_ACADEMIC_AUDIT_REPORT_2026.md
 FINAL_ACADEMIC_AUDIT_REPORT.md
+scripts/publish_clean_repo.ps1
+scripts/rebuild_git_history.ps1
+scripts/strip_*.ps1
+scripts/create_github_release.ps1
 
 # Regenerated figures (canonical PNGs committed: coverage_vs_error, reliability_diagram, full_analysis_*)
 artifacts/*_local*.png

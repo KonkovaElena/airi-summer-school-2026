@@ -15,7 +15,7 @@ flowchart LR
 
 ## Layers
 
-1. **Simulation** (`artifacts/`) — generates per-seed metrics; records `pip freeze` hash when requested.
+1. **Simulation** (`artifacts/`) — generates per-seed metrics; provenance uses SHA-256 of pinned `requirements.txt`.
 2. **Merge** — deduplicates seeds, attaches provenance metadata.
 3. **Analysis** — bootstrap CIs, paired permutation tests, Holm correction; large bootstrap arrays in `.npy.gz` sidecars.
 4. **Validation** — schema and provenance checks for CI.

@@ -1,5 +1,5 @@
-# Single-author commit helper (rejects Co-authored-by trailers). Usage:
-#   powershell -File scripts/git_commit_konkova.ps1 -Message "fix(ci): ..."
+# Single-author commit helper. Usage:
+#   powershell -File scripts/commit.ps1 -Message "docs: update protocol notes"
 param([Parameter(Mandatory = $true)][string]$Message)
 
 $env:GIT_AUTHOR_NAME = "KonkovaElena"
@@ -12,11 +12,6 @@ $msgFile = Join-Path $env:TEMP ("gitmsg_{0}.txt" -f [guid]::NewGuid().ToString("
 try {
     & git.exe commit -F $msgFile --no-verify
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-    $body = & git.exe log -1 --format="%B"
-    if ($body -match "Co-authored-by:") {
-        Write-Error "Co-authored-by trailer detected; aborting."
-        exit 1
-    }
     Write-Host "OK:" (& git.exe log -1 --oneline)
 } finally {
     Remove-Item -Force $msgFile -ErrorAction SilentlyContinue

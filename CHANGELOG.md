@@ -7,6 +7,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Sem
 
 ### Fixed
 
+- Provenance: `requirements_hash` is SHA-256 of pinned `artifacts/requirements.txt` (no local path leakage).
 - CI: `verify` job runs `verify_release`, strict `validate_analysis`, and `pytest` before Docker smoke (Python 3.13).
 - CI: GitHub Actions on Node 24 (`checkout@v6`, `setup-python@v6`, `build-push-action@v7`, `upload-artifact@v5`).
 - `CITATION.cff`: version 1.1.1, `preferred-citation` (Verma & Nalisnick 2022).
@@ -29,11 +30,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Sem
 ### Changed
 
 - README metrics aligned with analysis JSON (81.29 / 81.05 / 71.87%).
-- Removed legacy fix/audit scripts from repository root.
+- Removed obsolete maintenance scripts from repository root.
 
 ### Removed
 
-- Obsolete manual encoding fix scripts and draft audit guides from public tree.
+- Obsolete manual encoding fix scripts and draft internal guides from public tree.
 
 ## [1.0.0] - 2026-05-01
 

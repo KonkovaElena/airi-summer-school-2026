@@ -298,7 +298,7 @@ def main():
         docker_digest = 'N/A'
     out['docker_image_digest'] = docker_digest
 
-    # Record analysis configuration for reproducibility/audit
+    # Record analysis configuration for reproducibility checks
     out['analysis_config'] = {
         'n_bootstrap': args.n_bootstrap,
         'n_permutation': args.n_permutation,

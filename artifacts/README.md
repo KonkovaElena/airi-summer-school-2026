@@ -51,7 +51,7 @@ python compute_and_plot_results.py non_oracle_defer_results_2026_05_full.json \
   --n_bootstrap 5000 --n_permutation 10000 --rng_seed 0
 ```
 
-See [REPRODUCE.md](../REPRODUCE.md) for merge + `requirements_hash` setup.
+See [REPRODUCE.md](../REPRODUCE.md) for merge and lockfile provenance (`requirements_hash` = SHA-256 of `artifacts/requirements.txt`).
 
 Produced files (analysis):
 

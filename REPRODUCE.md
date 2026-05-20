@@ -36,12 +36,12 @@ python merge_experiment_results.py \
   non_oracle_defer_results_batch_05.json \
   -o non_oracle_defer_results_2026_05_full.json
 
-pip freeze | sort -u > installed.txt
+# Provenance fingerprint = SHA-256 of pinned lockfile (FAIR best practice; do not use ad-hoc pip freeze).
 # Linux:
-sha256sum installed.txt | awk '{print $1}' > installed.txt.sha256
+sha256sum requirements.txt | awk '{print $1}' | tee installed.txt.sha256
 export REQUIREMENTS_HASH=$(cat installed.txt.sha256)
 # Windows (PowerShell):
-# (Get-FileHash -Algorithm SHA256 installed.txt).Hash.ToLower() | Set-Content installed.txt.sha256 -NoNewline
+# (Get-FileHash -Algorithm SHA256 requirements.txt).Hash.ToLower() | Set-Content installed.txt.sha256 -NoNewline
 # $env:REQUIREMENTS_HASH = Get-Content installed.txt.sha256 -Raw
 
 python compute_and_plot_results.py non_oracle_defer_results_2026_05_full.json \

@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata from this file."
-title: "Calibrated Learning to Defer Simulation for Medical AI"
+title: "Calibrated Learning to Defer Simulation (Synthetic MEDAI)"
 abstract: >
   Synthetic-data evaluation framework for learning-to-defer under constrained expert budgets.
   Not clinical software.
@@ -13,7 +13,7 @@ url: "https://github.com/KonkovaElena/airi-summer-school-2026"
 repository-code: "https://github.com/KonkovaElena/airi-summer-school-2026"
 license: MIT
 keywords:
-  - medical-ai
+  - medical-informatics
   - learning-to-defer
   - uncertainty-calibration
   - reproducible-research
