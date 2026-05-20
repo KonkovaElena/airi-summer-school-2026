@@ -8,9 +8,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Sem
 ### Fixed
 
 - CI: `verify` job runs `verify_release`, strict `validate_analysis`, and `pytest` before Docker smoke (Python 3.13).
+- CI: GitHub Actions on Node 24 (`checkout@v6`, `setup-python@v6`, `build-push-action@v7`, `upload-artifact@v5`).
 - `CITATION.cff`: version 1.1.1, `preferred-citation` (Verma & Nalisnick 2022).
-- `REPRODUCE.md`: inline hash commands for Linux and Windows (no broken local-only links).
+- `REPRODUCE.md`: inline hash commands for Linux and Windows; smoke docs aligned with `make smoke` (3 seeds quick / 10 seeds extended).
+- Canonical JSON `git_sha` matches frozen data commit on `main` (`0f4340c`); README separates raw permutation *p* and Holm-corrected *p*.
 - Tests: `test_validate_analysis.py` uses standalone repo root (`parents[1]`, not monorepo path).
+- Tags `v1.0.0` / `v1.1.0` / `v1.1.1` on `main` without Cursor co-author.
 
 ## [1.1.0] - 2026-05-20
 

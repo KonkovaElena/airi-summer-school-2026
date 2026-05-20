@@ -52,13 +52,25 @@ cd ..
 python scripts/validate_analysis.py artifacts/non_oracle_defer_results_2026_05_full_analysis.json --strict-provenance
 ```
 
-## Smoke run (10 seeds)
+## Smoke runs
+
+**Quick (default, matches `make smoke`):** 3 seeds, reduced bootstrap — fast local check.
+
+```bash
+make smoke
+# equivalent:
+python artifacts/non_oracle_defer_simulation_2026_05.py --seed 20260501 --n_seeds 3 \
+  --out artifacts/out/smoke.json --bootstrap_iterations 200
+```
+
+**Extended:** 10 seeds — closer to production batch size (slower).
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r artifacts/requirements.txt --require-hashes
-python artifacts/non_oracle_defer_simulation_2026_05.py --seed 20260501 --n_seeds 10 --out artifacts/batch_results_local.json
+python artifacts/non_oracle_defer_simulation_2026_05.py --seed 20260501 --n_seeds 10 \
+  --out artifacts/batch_results_local.json
 ```
 
 ## Docker (CI parity)
