@@ -3,7 +3,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[4]
+REPO = Path(__file__).resolve().parents[1]
 VALIDATE = REPO / 'scripts' / 'validate_analysis.py'
 ARTIFACTS = Path(__file__).resolve().parents[1] / 'artifacts'
 
