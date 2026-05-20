@@ -282,12 +282,23 @@ def main():
     # record requirements hash if provided by CI or available as uploaded artifact
     req_hash = os.environ.get('REQUIREMENTS_HASH')
     if not req_hash:
-        # try to read uploaded installed.txt.sha256 if present in workspace
-        try:
-            with open('installed.txt.sha256', 'r', encoding='utf-8') as fh:
-                req_hash = fh.read().strip()
-        except Exception:
-            req_hash = 'N/A'
+        # Prefer committed fingerprint; fall back to SHA-256 of pinned lockfile
+        art_dir = os.path.dirname(os.path.abspath(__file__))
+        for rel in ('installed.txt.sha256', os.path.join(art_dir, 'installed.txt.sha256')):
+            try:
+                with open(rel, encoding='utf-8') as fh:
+                    req_hash = fh.read().strip()
+                    break
+            except OSError:
+                continue
+        if not req_hash:
+            lock = os.path.join(art_dir, 'requirements.txt')
+            if os.path.isfile(lock):
+                import hashlib
+
+                req_hash = hashlib.sha256(open(lock, 'rb').read()).hexdigest()
+            else:
+                req_hash = 'N/A'
     out['requirements_hash'] = req_hash
 
     # record docker image digest if provided by CI or merged metadata

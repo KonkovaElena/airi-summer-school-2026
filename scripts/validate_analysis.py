@@ -49,6 +49,9 @@ def validate(path: str, strict_provenance: bool = False) -> int:
         if data.get('requirements_hash') in (None, '', 'N/A'):
             print('ERROR: requirements_hash is missing (strict_provenance)')
             return 11
+        if data.get('git_sha') in (None, '', 'N/A'):
+            print('ERROR: git_sha is missing (strict_provenance)')
+            return 13
     elif data.get('requirements_hash') in (None, '', 'N/A'):
         print('WARN: requirements_hash is N/A')
     raw = p.read_text(encoding='utf-8')

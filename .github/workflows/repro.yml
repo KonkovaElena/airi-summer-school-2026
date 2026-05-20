@@ -39,7 +39,7 @@ jobs:
             artifacts/non_oracle_defer_results_2026_05_full_analysis.json \
             --strict-provenance
       - name: Pytest
-        run: pytest -q
+        run: pytest -q tests
 
   docker-smoke:
     needs: verify

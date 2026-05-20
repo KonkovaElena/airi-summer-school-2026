@@ -41,6 +41,7 @@ def _valid_analysis(tmp_path, inline_bootstrap: bool = False):
             'rng_seed': 0,
         },
         'requirements_hash': 'abc123',
+        'git_sha': '0f4340c',
     }
 
 

@@ -8,10 +8,10 @@ help:
 
 verify:
 	$(PYTHON) scripts/verify_release.py
-	$(PYTHON) -m pytest
+	$(PYTHON) -m pytest tests
 
 test:
-	$(PYTHON) -m pytest
+	$(PYTHON) -m pytest tests
 
 smoke:
 	$(PYTHON) $(ARTIFACTS)/non_oracle_defer_simulation_2026_05.py --seed 20260501 --n_seeds 3 --out $(ARTIFACTS)/out/smoke.json --bootstrap_iterations 200
