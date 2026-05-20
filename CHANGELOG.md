@@ -13,7 +13,6 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Sem
 - `REPRODUCE.md`: inline hash commands for Linux and Windows; smoke docs aligned with `make smoke` (3 seeds quick / 10 seeds extended).
 - Canonical JSON `git_sha` matches frozen data commit on `main` (`0f4340c`); README separates raw permutation *p* and Holm-corrected *p*.
 - Tests: `test_validate_analysis.py` uses standalone repo root (`parents[1]`, not monorepo path).
-- Tags `v1.0.0` / `v1.1.0` / `v1.1.1` on `main` without Cursor co-author.
 
 ## [1.1.0] - 2026-05-20
 

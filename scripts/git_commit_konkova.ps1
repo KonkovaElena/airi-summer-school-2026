@@ -1,4 +1,4 @@
-# Single-author commit helper (avoids Cursor co-author trailer). Usage:
+# Single-author commit helper (rejects Co-authored-by trailers). Usage:
 #   powershell -File scripts/git_commit_konkova.ps1 -Message "fix(ci): ..."
 param([Parameter(Mandatory = $true)][string]$Message)
 
@@ -13,8 +13,8 @@ try {
     & git.exe commit -F $msgFile --no-verify
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
     $body = & git.exe log -1 --format="%B"
-    if ($body -match "Co-authored-by:\s*Cursor") {
-        Write-Error "Co-authored-by Cursor detected; aborting."
+    if ($body -match "Co-authored-by:") {
+        Write-Error "Co-authored-by trailer detected; aborting."
         exit 1
     }
     Write-Host "OK:" (& git.exe log -1 --oneline)
